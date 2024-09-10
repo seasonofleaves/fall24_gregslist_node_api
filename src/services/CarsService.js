@@ -13,8 +13,8 @@ class CarsService {
     return car
   }
 
-  async getCars() {
-    const cars = await dbContext.Cars.find()
+  async getCars(query) {
+    const cars = await dbContext.Cars.find(query)
     return cars
   }
 }
