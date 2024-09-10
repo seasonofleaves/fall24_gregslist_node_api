@@ -1,3 +1,4 @@
+import { carsService } from "../services/CarsService.js";
 import BaseController from "../utils/BaseController.js";
 
 export class CarsController extends BaseController {
@@ -7,9 +8,10 @@ export class CarsController extends BaseController {
       .get('', this.getCars)
   }
 
-  getCars(request, response, next) {
+  async getCars(request, response, next) {
     try {
-      response.send('Cars Controller works!')
+      const cars = await carsService.getCars()
+      response.send(cars)
     } catch (error) {
       next(error)
     }
