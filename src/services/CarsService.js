@@ -28,7 +28,7 @@ class CarsService {
       .limit(limitAmount)
       .populate('creator')
 
-    const carCount = await dbContext.Cars.countDocuments()
+    const carCount = await dbContext.Cars.countDocuments(query)
 
     return {
       results: cars,
