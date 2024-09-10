@@ -3,6 +3,7 @@ import { BadRequest } from "../utils/Errors.js"
 
 class CarsService {
   async getCarById(carId) {
+    // NOTE findById will find a single document by its _id property
     const car = await dbContext.Cars.findById(carId)
 
     if (car == null) {
