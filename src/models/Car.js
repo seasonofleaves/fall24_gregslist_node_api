@@ -2,6 +2,8 @@ import { Schema } from "mongoose";
 
 export const CarSchema = new Schema(
   {
+    // NOTE _id property is automatically assigned by database
+
     make: { type: String, minlength: 3, maxlength: 50, required: true },
     model: { type: String, minlength: 1, maxlength: 100, required: true },
     year: { type: Number, min: 1886, max: 2025, required: true },
@@ -15,7 +17,7 @@ export const CarSchema = new Schema(
     tags: [{ type: String, maxlength: 50 }],
     mileage: { type: Number, min: 0, max: 1000000, required: true },
     hasCleanTitle: { type: Boolean, required: true, default: true },
-    // NOTE the creatorId must be an objectId type (24 characters, specfic spots are numbers and letters)
+    // NOTE the creatorId must be an objectId type (24 characters, specific spots are numbers and letters)
     // NOTE each creatorId should match the _id of an account in our accounts collection
     creatorId: { type: Schema.ObjectId, required: true, ref: 'Account' }
   },
