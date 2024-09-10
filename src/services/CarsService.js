@@ -1,6 +1,17 @@
 import { dbContext } from "../db/DbContext.js"
+import { BadRequest } from "../utils/Errors.js"
 
 class CarsService {
+  async getCarById(carId) {
+    const car = await dbContext.Cars.findById(carId)
+
+    if (car == null) {
+      throw new BadRequest(`No car found with the id of ${carId}`)
+    }
+
+    return car
+  }
+
   async getCars() {
     const cars = await dbContext.Cars.find()
     return cars
