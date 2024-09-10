@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
 
-const HouseSchema = new Schema(
+export const HouseSchema = new Schema(
   {
     // Properties from UML go here!
   },
