@@ -18,5 +18,10 @@ export const carSchema = new Schema(
     // NOTE the creatorId must be an objectId type (24 characters, specfic spots are numbers and letters)
     // NOTE each creatorId should match the _id of an account in our accounts collection
     creatorId: { type: Schema.ObjectId, required: true, ref: 'Account' }
+  },
+  // OPTIONS OBJECT
+  {
+    // adds createdAt and updatedAt properties to each car
+    timestamps: true
   }
 )
