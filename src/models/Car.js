@@ -24,6 +24,14 @@ export const CarSchema = new Schema(
   // OPTIONS OBJECT
   {
     // adds createdAt and updatedAt properties to each car
-    timestamps: true
+    timestamps: true,
+    // allows us to add virtual properties to our schema
+    toJSON: { virtuals: true }
   }
 )
+
+CarSchema.virtual('creator', {
+  localField: 'creatorId',
+  foreignField: '_id',
+  ref: 'Account'
+})
