@@ -14,7 +14,10 @@ class CarsService {
   }
 
   async getCars(query) {
-    const cars = await dbContext.Cars.find(query)
+    const sortBy = query.sort
+    delete query.sort
+
+    const cars = await dbContext.Cars.find(query).sort(sortBy + ' createdAt')
     return cars
   }
 }
