@@ -33,5 +33,6 @@ export const CarSchema = new Schema(
 CarSchema.virtual('creator', {
   localField: 'creatorId',
   foreignField: '_id',
-  ref: 'Account'
+  ref: 'Account',
+  justOne: true
 })

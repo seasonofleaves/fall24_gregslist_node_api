@@ -4,7 +4,7 @@ import { BadRequest } from "../utils/Errors.js"
 class CarsService {
   async getCarById(carId) {
     // NOTE findById will find a single document by its _id property
-    const car = await dbContext.Cars.findById(carId)
+    const car = await dbContext.Cars.findById(carId).populate('creator')
 
     if (car == null) {
       throw new BadRequest(`No car found with the id of ${carId}`)
@@ -26,6 +26,7 @@ class CarsService {
       .sort(sortBy + ' createdAt')
       .skip(skipAmount)
       .limit(limitAmount)
+      .populate('creator')
 
     const carCount = await dbContext.Cars.countDocuments()
 
