@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
 
-export const carSchema = new Schema(
+export const CarSchema = new Schema(
   {
     make: { type: String, minlength: 3, maxlength: 50, required: true },
     model: { type: String, minlength: 1, maxlength: 100, required: true },
