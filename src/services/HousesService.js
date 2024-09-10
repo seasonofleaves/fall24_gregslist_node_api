@@ -12,8 +12,8 @@ class HousesService {
     return house
   }
 
-  async getHouses() {
-    const houses = await dbContext.Houses.find()
+  async getHouses(query) {
+    const houses = await dbContext.Houses.find(query)
     return houses
   }
 

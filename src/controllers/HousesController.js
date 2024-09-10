@@ -20,7 +20,8 @@ export class HousesController extends BaseController {
 
   async getHouses(request, response, next) {
     try {
-      const houses = await housesService.getHouses()
+      const query = request.query
+      const houses = await housesService.getHouses(query)
       response.send(houses)
     } catch (error) {
       next(error)
